@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Accounts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Login</th>
+      <th>Password</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @accounts.each do |account| %>
+      <tr>
+        <td><%= account.login %></td>
+        <td><%= account.password %></td>
+        <td id="status_<%= account.id %>"><%= account.status %></td>
+        <td><%= button_to 'Edit', edit_account_path(account) %></td>
+        <td><%= button_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <%= button_to "Sync", sync_account_path(account), remote: true %>
+        </td>       
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Account', new_account_path %>
