@@ -1,6 +1,6 @@
 class TargetMail
   
-  attr_accessor:login, :password, :app_name, :app_url
+  attr_accessor :login, :password, :app_name, :app_url
 
   def add_platform(login,password,app_name,app_url)
     @login = login
